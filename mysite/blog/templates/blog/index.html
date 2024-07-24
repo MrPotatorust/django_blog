@@ -1,9 +1,10 @@
-{% if blog_post_list %}
-<ul>
-    {% for post in blog_post_list %}
-    <li>{{post.blog_heading}}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No blog posts are available.</p>
-{% endif %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'blog/style.css' %}">
+
+
+<h1>WELCOME TO MY BLOG</h1>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam ipsa dicta veritatis atque iusto hic libero earum molestiae, reprehenderit magnam quasi eaque eum illum fuga? Reiciendis itaque ipsum voluptate!</p>
+
+<h2>THANK YOU FOR VISITING</h2>
