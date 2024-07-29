@@ -1,2 +1,13 @@
-<h1>{{blogpost.blog_heading}}</h1>
-<p>{{blogpost.blog_text}}</p>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="blogpost">
+
+
+    <h1>{{blogpost.blog_heading}}</h1>
+    <p>{{blogpost.blog_text}}</p>
+    
+
+    
+</div>
+{% endblock %}

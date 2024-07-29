@@ -1,13 +1,20 @@
-{% load static %}
+{% extends 'blog/base.html' %}
 
-<link rel="stylesheet" href="{% static 'blog/style.css' %}">
+
+{% block content %}
 
 {% if blog_post_list %}
-<ul>
+<ul class="BlogListPage_list">
     {% for post in blog_post_list %}
-    <li><a href="{% url 'blog:blogpost' post.id %}">{{post.blog_heading}}</a></li>
+    <li>
+      <h1 class="BlogListPage_heading"><a href="{% url 'blog:blogpost' post.id %}">{{post.blog_heading}}</a></h1>
+      <p class="BlogListPage_published">Published: {{post.pub_date}}</p>
+      <p class="BlogListPage_description">{{post.description}}</p>
+    </li>
     {% endfor %}
 </ul>
 {% else %}
-<p>No blog posts are available.</p>
+    <h1>No blog posts are available.</h1>
 {% endif %}
+
+{% endblock %}

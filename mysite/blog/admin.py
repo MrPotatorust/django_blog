@@ -11,7 +11,7 @@ class BlogpostAdmin(admin.ModelAdmin):
 
     fieldsets = [
         (None, {'fields': ['blog_heading', 'pub_date']}),
-        ('Text', {'fields': ['blog_text']})
+        ('Text', {'fields': ['description', 'blog_text']})
     ]
 
 admin.site.register(Blogpost, BlogpostAdmin)

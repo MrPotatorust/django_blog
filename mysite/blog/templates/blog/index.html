@@ -1,10 +1,25 @@
-{% load static %}
-
-<link rel="stylesheet" href="{% static 'blog/style.css' %}">
+{% extends 'blog/base.html' %}
 
 
-<h1>WELCOME TO MY BLOG</h1>
+  {% block content %}
+    <section class="welcome_section">
+        <h1 class="welcome_heading">WELCOME TO MY BLOG</h1>
+        <p class="welcome_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam ipsa dicta veritatis atque iusto hic libero earum molestiae, reprehenderit magnam quasi eaque eum illum fuga? Reiciendis itaque ipsum voluptate!</p>
+    </section>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam totam ipsa dicta veritatis atque iusto hic libero earum molestiae, reprehenderit magnam quasi eaque eum illum fuga? Reiciendis itaque ipsum voluptate!</p>
 
-<h2>THANK YOU FOR VISITING</h2>
+    <section class="list_section">
+        <h1>Recent blogs:</h1>
+        <ul class="blog_preview">
+        {% for post in posts %} 
+            <li>
+                <h2><a href="{% url 'blog:blogpost' post.id %}">{{post.blog_heading}}</a> </h2>
+                <p>{{post.pub_date}}</p>
+            </li>
+            <li>{{ post.blog_text|slice:":120"}} ...</li>
+        {% endfor %}
+        </ul>
+        <h2><a href="{% url 'blog:blog_list' %}">More blogs</a></h2>
+    </section>
+  {% endblock %}
+    
